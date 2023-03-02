@@ -179,7 +179,7 @@ namespace Sharepoint_Contact_Sync
             using (var cc = authManager.GetContext(config.SiteURL))
             {
                 Microsoft.SharePoint.Client.List oList = cc.Web.Lists.GetByTitle(config.ListName);
-                cc.RequestTimeout = 5 * 60 * 1000;
+                cc.RequestTimeout = Convert.ToInt32(config.RequestTimeout) * 1000;
                 cc.Load(oList);
 
                 // Query Rows
