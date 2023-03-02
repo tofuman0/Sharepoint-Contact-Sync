@@ -39,7 +39,7 @@ namespace Sharepoint_Contact_Sync
             public string? TenantURL { get; set; }
             public string? DomainController { get; set; }
             public string? LDAPPath { get; set; }
-            public string? LDAPQuery { get; set; }
+            public string? LDAPFilter { get; set; }
             public string? CSVPath { get; set; }
             public string? DataFetchType { get; set; }
             public Int32? ExecuteLimit { get; set; }
@@ -255,7 +255,7 @@ namespace Sharepoint_Contact_Sync
                 ldapConnection.AuthenticationType = AuthenticationTypes.Secure;
 
                 DirectorySearcher search = new DirectorySearcher(ldapConnection);
-                search.Filter = config.LDAPQuery;
+                search.Filter = config.LDAPFilter;
 
                 // create an array of properties that we would like and  
                 // add them to the search object  
@@ -459,9 +459,9 @@ namespace Sharepoint_Contact_Sync
                     jsonConfig.LDAPPath = "CN=Users,DC=domain,DC=local";
                     writeConfig = true;
                 }
-                if(jsonConfig.LDAPQuery == null)
+                if(jsonConfig.LDAPFilter == null)
                 {
-                    jsonConfig.LDAPQuery = "(&(objectClass=User)(objectCategory=Person)(!userAccountControl:1.2.840.113556.1.4.803:=2)(givenName=*)(sn=*)(|(homePhone=*)(mobile=*)(ipPhone=*)))";
+                    jsonConfig.LDAPFilter = "(&(objectClass=User)(objectCategory=Person)(!userAccountControl:1.2.840.113556.1.4.803:=2)(givenName=*)(sn=*)(|(homePhone=*)(mobile=*)(ipPhone=*)))";
                     writeConfig = true;
                 }
                 if (jsonConfig.RequestTimeout == null || jsonConfig.RequestTimeout == 0)
@@ -561,7 +561,7 @@ namespace Sharepoint_Contact_Sync
                 TenantURL = "tenant.onmicrosoft.com",
                 DomainController = "dc.domain.local",
                 LDAPPath = "CN=Users,DC=Domain,DC=local",
-                LDAPQuery = "(&(objectClass = User)(objectCategory = Person)(!userAccountControl:1.2.840.113556.1.4.803:= 2)(givenName = *)(sn = *)(| (homePhone = *)(mobile = *)(ipPhone = *)))",
+                LDAPFilter = "(&(objectClass = User)(objectCategory = Person)(!userAccountControl:1.2.840.113556.1.4.803:= 2)(givenName = *)(sn = *)(| (homePhone = *)(mobile = *)(ipPhone = *)))",
                 CSVPath = ".\\data.csv",
                 DataFetchType = "csv",
                 ExecuteLimit = 200,

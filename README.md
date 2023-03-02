@@ -42,6 +42,8 @@ Note: Populate the SharepointFieldNames values in the configuration file from th
 
 **LDAPPath:** LDAP path for users eg: CN=Users,DC=Domain,DC=local
 
+**LDAPFilter:** LDAP filter to obtain directory objects
+
 **CSVPath:** CSV path
 
 **DataFetchType:** Type of fetch type. Options: csv, ldap
