@@ -4,9 +4,9 @@ Utility made to synchronise contacts from either Active Directory or CSV file. Y
 
 A configuration file named "contactsync.json" will be created in the folder that the application is run from if it doesn't exist already. Ensure you edit this configuration file with the appropriate settings before starting the application.
 
-Run with -cert cert_location.pfx cert_password to set the certificate in the configuration. The password is obfuscated so that it isn't easily known by just looking at the configuration file. However the method used to obfuscate isn't complex and it easily reversed so precautions must be taken to ensure the configuration file isn't accessible by unauthorised users.
+Run with -cert cert_location.pfx cert_password to set the certificate in the configuration. The password is obfuscated so that it isn't easily known by just looking at the configuration file. However the method used to obfuscate isn't complex and is easily reversed so precautions must be taken to ensure the configuration file isn't accessible by unauthorised users.
 
-Run with -getfieldvalues to obtain the field names. As the names in 365 aren't the names that are used to store the data. 365 shows the description not the actual name. Fields with spaces will often have `_x0020_` (hex value for space in unicode) in place of a spaces.
+Run with -getfieldvalues to obtain the field names. As the names in 365 aren't the names that are used to store the data. 365 shows the description not the actual name. Fields with spaces will often have `_x0020_` (hex value for space in unicode) in place of spaces.
 
 Running the application without any arguments will set the application to try to synchronise the data.
 
