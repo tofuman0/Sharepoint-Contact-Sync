@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Sharepoint Test": {
+      "commandName": "Executable",
+      "executablePath": "dotnet.exe",
+      "commandLineArgs": "\"Sharepoint Contact Sync.dll\" -getfieldnames",
+      "workingDirectory": "C:\\Users\\dannyw\\source\\repos\\Sharepoint Contact Sync\\bin\\Debug\\net7.0-windows"
+    }
+  }
+}
